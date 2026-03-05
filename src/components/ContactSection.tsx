@@ -31,7 +31,7 @@ const ContactSection = () => {
           </p>
           <div className="flex items-center justify-center gap-2 mt-4 text-sm text-muted-foreground">
             <Mail className="w-4 h-4 text-primary" />
-            <span>hello@kiad.com</span>
+            <span>kiad.digital@gmail.com</span>
           </div>
         </motion.div>
 

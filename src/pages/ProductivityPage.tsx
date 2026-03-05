@@ -9,6 +9,7 @@ const ProductivityPage = () => (
       icon={ListChecks}
       name="Productivity"
       intro="Proven systems and strategies to focus better, manage time, and achieve more every day. Unlock your full potential with actionable digital guides."
+      dataFile="/data/ebooks/productivity.json"
     />
   </>
 );

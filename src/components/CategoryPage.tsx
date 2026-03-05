@@ -2,24 +2,29 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import type { LucideIcon } from "lucide-react";
-
-export interface Ebook {
-  cover: string;
-  title: string;
-  description: string;
-  link: string;
-}
+import EbookCard, { type EbookData } from "@/components/EbookCard";
 
 interface CategoryPageProps {
   icon: LucideIcon;
   name: string;
   intro: string;
-  ebooks?: Ebook[];
+  dataFile: string;
 }
 
-const CategoryPage = ({ icon: Icon, name, intro, ebooks = [] }: CategoryPageProps) => {
+const CategoryPage = ({ icon: Icon, name, intro, dataFile }: CategoryPageProps) => {
   const navigate = useNavigate();
+  const [ebooks, setEbooks] = useState<EbookData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(dataFile)
+      .then((res) => res.json())
+      .then((data) => setEbooks(data))
+      .catch(() => setEbooks([]))
+      .finally(() => setLoading(false));
+  }, [dataFile]);
 
   return (
     <div className="min-h-screen bg-background pt-24 pb-16">
@@ -48,39 +53,10 @@ const CategoryPage = ({ icon: Icon, name, intro, ebooks = [] }: CategoryPageProp
           <p className="text-muted-foreground max-w-2xl mx-auto">{intro}</p>
         </motion.div>
 
-        {ebooks.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {loading ? null : ebooks.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {ebooks.map((book, i) => (
-              <motion.div
-                key={book.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-card rounded-xl overflow-hidden shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 group"
-              >
-                <div className="aspect-[3/4] bg-muted overflow-hidden">
-                  <img
-                    src={book.cover}
-                    alt={book.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-heading text-lg font-semibold text-foreground mb-2">
-                    {book.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">{book.description}</p>
-                  <Button
-                    variant="brand-outline"
-                    size="sm"
-                    className="w-full"
-                    onClick={() => window.open(book.link, "_blank")}
-                  >
-                    View Guide
-                  </Button>
-                </div>
-              </motion.div>
+              <EbookCard key={book.title} ebook={book} index={i} />
             ))}
           </div>
         ) : (
@@ -91,6 +67,9 @@ const CategoryPage = ({ icon: Icon, name, intro, ebooks = [] }: CategoryPageProp
             className="text-center py-16"
           >
             <p className="text-muted-foreground text-lg">Products coming soon</p>
+            <p className="text-muted-foreground/70 text-sm mt-2">
+              We are preparing new digital guides for this category.
+            </p>
           </motion.div>
         )}
       </div>

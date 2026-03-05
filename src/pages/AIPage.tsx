@@ -9,6 +9,7 @@ const AIPage = () => (
       icon={BrainCircuit}
       name="AI"
       intro="Practical guides to understand and use artificial intelligence tools to work faster and smarter. Stay ahead with the latest AI strategies and techniques."
+      dataFile="/data/ebooks/ai.json"
     />
   </>
 );

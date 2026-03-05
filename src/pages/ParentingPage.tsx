@@ -9,6 +9,7 @@ const ParentingPage = () => (
       icon={Baby}
       name="Parenting"
       intro="Modern parenting guides to help families raise confident, healthy and emotionally strong children. Explore practical resources for every stage of your parenting journey."
+      dataFile="/data/ebooks/parenting.json"
     />
   </>
 );

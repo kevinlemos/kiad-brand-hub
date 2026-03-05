@@ -9,6 +9,7 @@ const FitnessPage = () => (
       icon={Dumbbell}
       name="Fitness"
       intro="Effective fitness and health guides designed to help you build strength, energy and better habits. Start transforming your body and mind today."
+      dataFile="/data/ebooks/fitness.json"
     />
   </>
 );

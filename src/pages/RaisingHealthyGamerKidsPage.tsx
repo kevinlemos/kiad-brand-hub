@@ -1,7 +1,21 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, ShoppingCart, CheckCircle, Star } from "lucide-react";
+import {
+  ArrowLeft,
+  ShoppingCart,
+  CheckCircle,
+  Star,
+  BookOpen,
+  Brain,
+  AlertTriangle,
+  Shield,
+  Heart,
+  Users,
+  Lock,
+  Zap,
+  ShieldCheck,
+} from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -14,30 +28,41 @@ import {
 
 const CHECKOUT_URL = "https://hotmart.com/checkout-placeholder";
 
-const benefits = [
-  "Understand what science really says about video games",
-  "Learn how gaming affects the developing brain",
-  "Recognize early warning signs of unhealthy gaming habits",
-  "Set clear boundaries without constant conflict",
-  "Turn gaming into a positive family experience",
+const sectionAnim = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.5 },
+};
+
+const whatYouLearn = [
+  { icon: Brain, text: "What science actually says about video games and the developing brain" },
+  { icon: Heart, text: "The real cognitive and emotional benefits games can provide" },
+  { icon: AlertTriangle, text: "How to recognize when gaming becomes unhealthy" },
+  { icon: Shield, text: "How to set healthy boundaries without constant conflict" },
+  { icon: Users, text: "How to turn gaming into a positive tool for learning and family connection" },
+];
+
+const whoIsFor = [
+  "Parents with children between 6 and 16 years old",
+  "Families struggling with screen-time limits",
+  "Parents who want less conflict around gaming",
+  "Parents who want practical solutions instead of fear or judgment",
 ];
 
 const testimonials = [
   {
-    quote:
-      "This guide helped me stop fighting with my son about video games. Now we actually talk about what he plays and set boundaries that work.",
+    quote: "This guide helped me stop fighting with my son about video games. Now we actually talk about what he plays and set boundaries that work.",
     name: "Sarah M.",
     location: "Austin, TX",
   },
   {
-    quote:
-      "I was scared my daughter was addicted to her tablet. This guide gave me the tools to understand what was really going on and how to respond calmly.",
+    quote: "I was scared my daughter was addicted to her tablet. This guide gave me the tools to understand what was really going on and how to respond calmly.",
     name: "James R.",
     location: "Denver, CO",
   },
   {
-    quote:
-      "Short, practical, and straight to the point. I read it in one evening and started applying it the next day. Best $5 I've spent as a parent.",
+    quote: "Short, practical, and straight to the point. I read it in one evening and started applying it the next day. Best $5 I've spent as a parent.",
     name: "Monica L.",
     location: "Miami, FL",
   },
@@ -45,24 +70,16 @@ const testimonials = [
 
 const faqs = [
   {
-    q: "Is this guide only for parents of teenagers?",
-    a: "No. The guide covers strategies for children of all ages, from early childhood through adolescence. The earlier you start, the easier it is to build healthy habits.",
+    q: "Is this guide based on research?",
+    a: "Yes. It is built using current scientific insights about gaming, child development, and digital behavior.",
   },
   {
-    q: "Will this help if my child already plays too much?",
-    a: "Yes. The guide includes specific steps to recognize problematic patterns and gradually introduce healthier boundaries without triggering major conflicts.",
+    q: "What age group is this for?",
+    a: "The guide is designed mainly for parents of children between 6 and 16 years old.",
   },
   {
-    q: "Does the book recommend banning video games?",
-    a: "Not at all. The approach is about balance and guidance, not elimination. Video games can be beneficial when managed properly.",
-  },
-  {
-    q: "How long is the ebook?",
-    a: "It's a concise, practical guide designed to be read in a single sitting — around 40–50 pages focused entirely on actionable advice.",
-  },
-  {
-    q: "Can both parents use the guide?",
-    a: "Absolutely. The guide is meant to be shared between parents or caregivers so everyone is aligned on the same approach.",
+    q: "Is this a physical book?",
+    a: "No. This is a digital ebook that you will receive instantly after purchase.",
   },
 ];
 
@@ -131,56 +148,116 @@ const RaisingHealthyGamerKidsPage = () => {
               >
                 <ShoppingCart className="w-5 h-5 mr-2" /> Buy the Guide
               </Button>
+              <p className="flex items-center gap-2 text-xs text-muted-foreground">
+                <Lock className="w-3.5 h-3.5" />
+                Secure checkout • Instant access • 30-day guarantee
+              </p>
             </motion.div>
           </div>
         </section>
 
-        {/* ── PROBLEM & BENEFITS ── */}
+        {/* ── SECTION 1 — Problem Identification ── */}
         <section className="mt-24 bg-muted/50 py-20">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-12"
-            >
-              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-4">
-                Why modern parents struggle with gaming
+          <div className="container mx-auto px-4 max-w-3xl">
+            <motion.div {...sectionAnim} className="text-center">
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-6">
+                Video Games Aren't the Problem. Lack of Guidance Is.
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Many parents feel overwhelmed by how much time their children
-                spend on screens and video games. The goal is not to eliminate
-                gaming, but to guide it in a healthy direction.
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Most parents today struggle with the same questions:
+              </p>
+              <div className="grid gap-3 max-w-md mx-auto text-left mb-8">
+                {[
+                  "How much gaming is too much?",
+                  "Are video games harming my child's brain?",
+                  "Why do games seem so important to them?",
+                ].map((q, i) => (
+                  <p key={i} className="text-foreground text-sm font-medium italic pl-4 border-l-2 border-primary/40">
+                    {q}
+                  </p>
+                ))}
+              </div>
+              <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
+                The problem usually isn't gaming itself.{" "}
+                <span className="text-foreground font-semibold">
+                  It's not knowing how to guide it in a healthy way.
+                </span>
               </p>
             </motion.div>
+          </div>
+        </section>
 
+        {/* ── SECTION 2 — What You'll Learn ── */}
+        <section className="py-20">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <motion.h2 {...sectionAnim} className="font-heading text-2xl sm:text-3xl font-bold text-foreground text-center mb-12">
+              What You'll Learn Inside This Guide
+            </motion.h2>
             <div className="grid gap-4 max-w-xl mx-auto">
-              {benefits.map((b, i) => (
+              {whatYouLearn.map((item, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, x: -16 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="flex items-start gap-3 bg-card rounded-lg p-4 shadow-[var(--shadow-card)]"
+                  className="flex items-start gap-4 bg-card rounded-lg p-4 shadow-[var(--shadow-card)]"
                 >
-                  <CheckCircle className="w-5 h-5 text-secondary mt-0.5 shrink-0" />
-                  <span className="text-foreground text-sm">{b}</span>
+                  <item.icon className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                  <span className="text-foreground text-sm">{item.text}</span>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── PRODUCT PREVIEW ── */}
+        {/* ── SECTION 3 — Who This Guide Is For ── */}
+        <section className="bg-muted/50 py-20">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <motion.h2 {...sectionAnim} className="font-heading text-2xl sm:text-3xl font-bold text-foreground text-center mb-10">
+              This Guide Is Perfect For
+            </motion.h2>
+            <div className="grid sm:grid-cols-2 gap-4 max-w-xl mx-auto">
+              {whoIsFor.map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="flex items-start gap-3 p-3"
+                >
+                  <CheckCircle className="w-4 h-4 text-secondary mt-0.5 shrink-0" />
+                  <span className="text-foreground text-sm">{item}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── SECTION 4 — Trust / Credibility ── */}
         <section className="py-20">
+          <div className="container mx-auto px-4 max-w-3xl text-center">
+            <motion.div {...sectionAnim}>
+              <BookOpen className="w-8 h-8 text-primary mx-auto mb-4" />
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-4">
+                Built on Research, Designed for Real Families
+              </h2>
+              <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
+                This guide combines insights from modern research on child development, psychology, and digital behavior with practical strategies that parents can apply immediately.
+              </p>
+              <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto mt-4">
+                The goal is not to eliminate gaming — but to help families create a healthier and more balanced relationship with it.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ── PRODUCT PREVIEW ── */}
+        <section className="bg-muted/50 py-20">
           <div className="container mx-auto px-4 max-w-4xl">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              {...sectionAnim}
               className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
             >
               <div className="rounded-xl overflow-hidden shadow-[var(--shadow-card)] bg-muted max-w-xs mx-auto md:mx-0">
@@ -192,7 +269,7 @@ const RaisingHealthyGamerKidsPage = () => {
               </div>
               <div>
                 <h2 className="font-heading text-2xl font-bold text-foreground mb-4">
-                  What's inside
+                  What's Inside
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
                   This short practical guide helps parents understand the role of
@@ -205,16 +282,13 @@ const RaisingHealthyGamerKidsPage = () => {
         </section>
 
         {/* ── TESTIMONIALS ── */}
-        <section className="bg-muted/50 py-20">
+        <section className="py-20">
           <div className="container mx-auto px-4 max-w-5xl">
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              {...sectionAnim}
               className="font-heading text-2xl sm:text-3xl font-bold text-foreground text-center mb-12"
             >
-              What parents are saying
+              What Parents Are Saying
             </motion.h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {testimonials.map((t, i) => (
@@ -249,18 +323,12 @@ const RaisingHealthyGamerKidsPage = () => {
           </div>
         </section>
 
-        {/* ── PRICE ── */}
-        <section className="py-20">
+        {/* ── SECTION 5 — Purchase ── */}
+        <section className="bg-muted/50 py-20">
           <div className="container mx-auto px-4 max-w-lg text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col items-center gap-6"
-            >
+            <motion.div {...sectionAnim} className="flex flex-col items-center gap-6">
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground">
-                Get the Guide
+                Get the Complete Guide
               </h2>
               <p className="font-heading text-5xl font-bold text-primary">$5</p>
               <p className="text-muted-foreground max-w-md leading-relaxed">
@@ -275,18 +343,34 @@ const RaisingHealthyGamerKidsPage = () => {
               >
                 <ShoppingCart className="w-5 h-5 mr-2" /> Buy Now
               </Button>
+              <p className="flex items-center gap-2 text-xs text-muted-foreground">
+                <Zap className="w-3.5 h-3.5" />
+                Instant access after purchase.
+              </p>
             </motion.div>
           </div>
         </section>
 
-        {/* ── FAQ ── */}
+        {/* ── SECTION 6 — Guarantee ── */}
+        <section className="py-16">
+          <div className="container mx-auto px-4 max-w-2xl text-center">
+            <motion.div {...sectionAnim} className="flex flex-col items-center gap-4">
+              <ShieldCheck className="w-10 h-10 text-secondary" />
+              <h2 className="font-heading text-xl sm:text-2xl font-bold text-foreground">
+                30-Day Satisfaction Guarantee
+              </h2>
+              <p className="text-muted-foreground text-sm leading-relaxed max-w-lg">
+                If this guide doesn't help you better understand and manage gaming in your family, contact us within 30 days and we'll refund your purchase.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ── SECTION 7 — FAQ ── */}
         <section className="bg-muted/50 py-20">
           <div className="container mx-auto px-4 max-w-2xl">
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              {...sectionAnim}
               className="font-heading text-2xl sm:text-3xl font-bold text-foreground text-center mb-12"
             >
               Frequently Asked Questions

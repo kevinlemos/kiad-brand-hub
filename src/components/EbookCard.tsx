@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useNavigate } from "react-router-dom";
 
 export interface EbookData {
   title: string;
@@ -17,6 +18,10 @@ interface EbookCardProps {
 }
 
 const EbookCard = ({ ebook, index }: EbookCardProps) => {
+  const navigate = useNavigate();
+
+  const goToLanding = () => navigate(ebook.landing);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -24,7 +29,10 @@ const EbookCard = ({ ebook, index }: EbookCardProps) => {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="bg-card rounded-xl overflow-hidden shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 group flex flex-col"
     >
-      <div className="aspect-[3/4] bg-muted overflow-hidden">
+      <div
+        className="aspect-[3/4] bg-muted overflow-hidden cursor-pointer"
+        onClick={goToLanding}
+      >
         <img
           src={ebook.cover}
           alt={ebook.title}
@@ -33,7 +41,10 @@ const EbookCard = ({ ebook, index }: EbookCardProps) => {
         />
       </div>
       <div className="p-6 flex flex-col flex-1">
-        <h3 className="font-heading text-lg font-semibold text-foreground mb-2">
+        <h3
+          className="font-heading text-lg font-semibold text-foreground mb-2 cursor-pointer hover:text-primary transition-colors"
+          onClick={goToLanding}
+        >
           {ebook.title}
         </h3>
         <p className="text-sm text-muted-foreground mb-4 flex-1">
@@ -53,7 +64,7 @@ const EbookCard = ({ ebook, index }: EbookCardProps) => {
           variant="brand-outline"
           size="sm"
           className="w-full"
-          onClick={() => window.open(ebook.landing, "_blank")}
+          onClick={goToLanding}
         >
           View Guide
         </Button>

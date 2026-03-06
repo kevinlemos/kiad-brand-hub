@@ -9,6 +9,7 @@ import ParentingPage from "./pages/ParentingPage";
 import FitnessPage from "./pages/FitnessPage";
 import ProductivityPage from "./pages/ProductivityPage";
 import AIPage from "./pages/AIPage";
+import RaisingHealthyGamerKidsPage from "./pages/RaisingHealthyGamerKidsPage";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/parenting" element={<ParentingPage />} />
+          <Route path="/parenting/raising-healthy-gamer-kids" element={<RaisingHealthyGamerKidsPage />} />
           <Route path="/fitness" element={<FitnessPage />} />
           <Route path="/productivity" element={<ProductivityPage />} />
           <Route path="/ai" element={<AIPage />} />

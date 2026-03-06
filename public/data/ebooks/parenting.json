@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "title": "Raising Healthy Gamer Kids: A Practical and Science-Based Guide for Modern Parents",
+    "description": "A science-based guide to help parents understand, manage, and make the most of video games in their children's lives.",
+    "cover": "/assets/covers/raising-healthy-gamer-kids.jpg",
+    "tag": "Best Seller",
+    "price": "$5",
+    "landing": "/parenting/raising-healthy-gamer-kids"
+  }
+]

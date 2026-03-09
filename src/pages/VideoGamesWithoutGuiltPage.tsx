@@ -129,7 +129,7 @@ const RaisingHealthyGamerKidsPage = () => {
                 Best Seller
               </Badge>
               <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-                Raising Healthy Gamer Kids
+                Video Games Without Guilt
               </h1>
               <p className="font-heading text-lg text-muted-foreground">
                 A Practical and Science-Based Guide for Modern Parents

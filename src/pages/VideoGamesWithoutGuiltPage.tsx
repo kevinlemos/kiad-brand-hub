@@ -62,7 +62,7 @@ const testimonials = [
     location: "Denver, CO",
   },
   {
-    quote: "Short, practical, and straight to the point. I read it in one evening and started applying it the next day. Best $5 I've spent as a parent.",
+    quote: "Short, practical, and straight to the point. I read it in one evening and started applying it the next day. Best money I've spent as a parent.",
     name: "Monica L.",
     location: "Miami, FL",
   },

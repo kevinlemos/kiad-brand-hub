@@ -330,7 +330,11 @@ const VideoGamesWithoutGuiltPage = () => {
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground">
                 Get the Complete Guide
               </h2>
-              <p className="font-heading text-5xl font-bold text-primary">$5</p>
+              <div className="flex items-center gap-3 justify-center">
+                <span className="font-heading text-2xl text-muted-foreground line-through">$12</span>
+                <span className="font-heading text-5xl font-bold text-primary">$5.99</span>
+              </div>
+              <Badge variant="secondary" className="text-xs">Special launch price</Badge>
               <p className="text-muted-foreground max-w-md leading-relaxed">
                 A simple guide that can transform how your family deals with
                 video games.

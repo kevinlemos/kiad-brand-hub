@@ -112,8 +112,8 @@ const RaisingHealthyGamerKidsPage = () => {
             >
               <div className="rounded-xl overflow-hidden shadow-[var(--shadow-card-hover)] bg-muted">
                 <img
-                  src="/assets/covers/raising-healthy-gamer-kids.jpg"
-                  alt="Raising Healthy Gamer Kids ebook cover"
+                   src="/assets/covers/video-games-without-guilt.jpg"
+                  alt="Video Games Without Guilt ebook cover"
                   className="w-full h-auto object-cover"
                 />
               </div>

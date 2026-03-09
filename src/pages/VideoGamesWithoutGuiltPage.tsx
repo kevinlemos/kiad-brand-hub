@@ -150,7 +150,7 @@ const VideoGamesWithoutGuiltPage = () => {
               </Button>
               <p className="flex items-center gap-2 text-xs text-muted-foreground">
                 <Lock className="w-3.5 h-3.5" />
-                Secure checkout • Instant access • 30-day guarantee
+                Secure checkout • Instant access • 7-day guarantee
               </p>
             </motion.div>
           </div>

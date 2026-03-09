@@ -395,4 +395,4 @@ const VideoGamesWithoutGuiltPage = () => {
   );
 };
 
-export default RaisingHealthyGamerKidsPage;
+export default VideoGamesWithoutGuiltPage;

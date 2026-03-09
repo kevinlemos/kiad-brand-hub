@@ -361,10 +361,10 @@ const VideoGamesWithoutGuiltPage = () => {
             <motion.div {...sectionAnim} className="flex flex-col items-center gap-4">
               <ShieldCheck className="w-10 h-10 text-secondary" />
               <h2 className="font-heading text-xl sm:text-2xl font-bold text-foreground">
-                30-Day Satisfaction Guarantee
+                7-Day Satisfaction Guarantee
               </h2>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-lg">
-                If this guide doesn't help you better understand and manage gaming in your family, contact us within 30 days and we'll refund your purchase.
+                If this guide doesn't help you better understand and manage gaming in your family, contact us within 7 days and we'll refund your purchase.
               </p>
             </motion.div>
           </div>

@@ -26,7 +26,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const CHECKOUT_URL = "https://hotmart.com/checkout-placeholder";
+const CHECKOUT_URL = "https://pay.hotmart.com/I104824523W";
 
 const sectionAnim = {
   initial: { opacity: 0, y: 20 },

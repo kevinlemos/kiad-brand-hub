@@ -83,7 +83,7 @@ const faqs = [
   },
 ];
 
-const RaisingHealthyGamerKidsPage = () => {
+const VideoGamesWithoutGuiltPage = () => {
   const navigate = useNavigate();
 
   return (

@@ -83,7 +83,7 @@ const faqs = [
   },
 ];
 
-const RaisingHealthyGamerKidsPage = () => {
+const VideoGamesWithoutGuiltPage = () => {
   const navigate = useNavigate();
 
   return (
@@ -112,8 +112,8 @@ const RaisingHealthyGamerKidsPage = () => {
             >
               <div className="rounded-xl overflow-hidden shadow-[var(--shadow-card-hover)] bg-muted">
                 <img
-                  src="/assets/covers/raising-healthy-gamer-kids.jpg"
-                  alt="Raising Healthy Gamer Kids ebook cover"
+                   src="/assets/covers/video-games-without-guilt.jpg"
+                  alt="Video Games Without Guilt ebook cover"
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -129,7 +129,7 @@ const RaisingHealthyGamerKidsPage = () => {
                 Best Seller
               </Badge>
               <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-                Raising Healthy Gamer Kids
+                Video Games Without Guilt
               </h1>
               <p className="font-heading text-lg text-muted-foreground">
                 A Practical and Science-Based Guide for Modern Parents
@@ -262,8 +262,8 @@ const RaisingHealthyGamerKidsPage = () => {
             >
               <div className="rounded-xl overflow-hidden shadow-[var(--shadow-card)] bg-muted max-w-xs mx-auto md:mx-0">
                 <img
-                  src="/assets/covers/raising-healthy-gamer-kids.jpg"
-                  alt="Ebook preview"
+                   src="/assets/covers/video-games-without-guilt.jpg"
+                  alt="Video Games Without Guilt ebook preview"
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -395,4 +395,4 @@ const RaisingHealthyGamerKidsPage = () => {
   );
 };
 
-export default RaisingHealthyGamerKidsPage;
+export default VideoGamesWithoutGuiltPage;

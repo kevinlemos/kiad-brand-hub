@@ -26,7 +26,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const CHECKOUT_URL = "https://hotmart.com/checkout-placeholder";
+const CHECKOUT_URL = "https://pay.hotmart.com/I104824523W";
 
 const sectionAnim = {
   initial: { opacity: 0, y: 20 },
@@ -62,7 +62,7 @@ const testimonials = [
     location: "Denver, CO",
   },
   {
-    quote: "Short, practical, and straight to the point. I read it in one evening and started applying it the next day. Best $5 I've spent as a parent.",
+    quote: "Short, practical, and straight to the point. I read it in one evening and started applying it the next day. Best money I've spent as a parent.",
     name: "Monica L.",
     location: "Miami, FL",
   },
@@ -150,7 +150,7 @@ const VideoGamesWithoutGuiltPage = () => {
               </Button>
               <p className="flex items-center gap-2 text-xs text-muted-foreground">
                 <Lock className="w-3.5 h-3.5" />
-                Secure checkout • Instant access • 30-day guarantee
+                Secure checkout • Instant access • 7-day guarantee
               </p>
             </motion.div>
           </div>
@@ -330,7 +330,11 @@ const VideoGamesWithoutGuiltPage = () => {
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground">
                 Get the Complete Guide
               </h2>
-              <p className="font-heading text-5xl font-bold text-primary">$5</p>
+              <div className="flex items-center gap-3 justify-center">
+                <span className="font-heading text-2xl text-muted-foreground line-through">$12</span>
+                <span className="font-heading text-5xl font-bold text-primary">$5.99</span>
+              </div>
+              <Badge variant="secondary" className="text-xs">Special launch price</Badge>
               <p className="text-muted-foreground max-w-md leading-relaxed">
                 A simple guide that can transform how your family deals with
                 video games.
@@ -357,10 +361,10 @@ const VideoGamesWithoutGuiltPage = () => {
             <motion.div {...sectionAnim} className="flex flex-col items-center gap-4">
               <ShieldCheck className="w-10 h-10 text-secondary" />
               <h2 className="font-heading text-xl sm:text-2xl font-bold text-foreground">
-                30-Day Satisfaction Guarantee
+                7-Day Satisfaction Guarantee
               </h2>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-lg">
-                If this guide doesn't help you better understand and manage gaming in your family, contact us within 30 days and we'll refund your purchase.
+                If this guide doesn't help you better understand and manage gaming in your family, contact us within 7 days and we'll refund your purchase.
               </p>
             </motion.div>
           </div>

@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Baby, Dumbbell, ListChecks, BrainCircuit } from "lucide-react";
+import { Baby, Dumbbell, ListChecks, BrainCircuit, HeartPulse } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
 const categories = [
   {
@@ -28,10 +29,17 @@ const categories = [
     desc: "Practical guides to understand and use artificial intelligence tools to work faster and smarter.",
     path: "/ai",
   },
+  {
+    icon: HeartPulse,
+    name: "Personal Wellness",
+    desc: "Practical guides to help people improve their wellbeing, reduce everyday discomfort, build healthier habits, and take better care of their body and mind.",
+    path: "/wellness",
+  },
 ];
 
 const ProductsSection = () => {
   const navigate = useNavigate();
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
     <section id="products" className="py-24 bg-background">
@@ -51,7 +59,8 @@ const ProductsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Desktop grid */}
+        <div className="hidden lg:grid lg:grid-cols-5 gap-8">
           {categories.map((p, i) => (
             <motion.div
               key={p.name}
@@ -61,6 +70,34 @@ const ProductsSection = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               onClick={() => navigate(p.path)}
               className="bg-card rounded-xl p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 flex flex-col items-center text-center group cursor-pointer"
+            >
+              <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-[image:var(--gradient-brand)] transition-all duration-300">
+                <p.icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+              </div>
+              <h3 className="font-heading text-xl font-semibold text-foreground mb-2">{p.name}</h3>
+              <p className="text-sm text-muted-foreground mb-6 flex-1">{p.desc}</p>
+              <Button variant="brand-outline" size="sm">
+                View Guides
+              </Button>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Mobile / tablet horizontal scroll */}
+        <div
+          ref={scrollRef}
+          className="lg:hidden flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
+          {categories.map((p, i) => (
+            <motion.div
+              key={p.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              onClick={() => navigate(p.path)}
+              className="bg-card rounded-xl p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 flex flex-col items-center text-center group cursor-pointer snap-start shrink-0 w-[75vw] sm:w-[45vw]"
             >
               <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-[image:var(--gradient-brand)] transition-all duration-300">
                 <p.icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors duration-300" />

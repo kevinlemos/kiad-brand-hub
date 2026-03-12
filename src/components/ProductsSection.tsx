@@ -112,31 +112,51 @@ const ProductsSection = () => {
         </div>
 
         {/* Mobile / tablet horizontal scroll */}
-        <div
-          ref={scrollRef}
-          className="lg:hidden flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4"
-          style={{ WebkitOverflowScrolling: "touch" }}
-        >
-          {categories.map((p, i) => (
-            <motion.div
-              key={p.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              onClick={() => navigate(p.path)}
-              className="bg-card rounded-xl p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 flex flex-col items-center text-center group cursor-pointer snap-start shrink-0 w-[75vw] sm:w-[45vw]"
+        <div className="lg:hidden relative">
+          {canScrollLeft && (
+            <button
+              onClick={() => scroll("left")}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-card/90 backdrop-blur shadow-[var(--shadow-card-hover)] flex items-center justify-center text-foreground hover:bg-card transition-colors"
+              aria-label="Scroll left"
             >
-              <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-[image:var(--gradient-brand)] transition-all duration-300">
-                <p.icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
-              </div>
-              <h3 className="font-heading text-xl font-semibold text-foreground mb-2">{p.name}</h3>
-              <p className="text-sm text-muted-foreground mb-6 flex-1">{p.desc}</p>
-              <Button variant="brand-outline" size="sm">
-                View Guides
-              </Button>
-            </motion.div>
-          ))}
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+          )}
+          {canScrollRight && (
+            <button
+              onClick={() => scroll("right")}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-card/90 backdrop-blur shadow-[var(--shadow-card-hover)] flex items-center justify-center text-foreground hover:bg-card transition-colors"
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          )}
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4"
+            style={{ WebkitOverflowScrolling: "touch" }}
+          >
+            {categories.map((p, i) => (
+              <motion.div
+                key={p.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                onClick={() => navigate(p.path)}
+                className="bg-card rounded-xl p-8 shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 flex flex-col items-center text-center group cursor-pointer snap-start shrink-0 w-[75vw] sm:w-[45vw]"
+              >
+                <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-[image:var(--gradient-brand)] transition-all duration-300">
+                  <p.icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                </div>
+                <h3 className="font-heading text-xl font-semibold text-foreground mb-2">{p.name}</h3>
+                <p className="text-sm text-muted-foreground mb-6 flex-1">{p.desc}</p>
+                <Button variant="brand-outline" size="sm">
+                  View Guides
+                </Button>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

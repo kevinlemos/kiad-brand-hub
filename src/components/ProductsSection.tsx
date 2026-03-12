@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Baby, Dumbbell, ListChecks, BrainCircuit, HeartPulse } from "lucide-react";
+import { Baby, Dumbbell, ListChecks, BrainCircuit, HeartPulse, ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useRef } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 
 const categories = [
   {

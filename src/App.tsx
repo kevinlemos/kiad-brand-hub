@@ -11,6 +11,7 @@ import ProductivityPage from "./pages/ProductivityPage";
 import AIPage from "./pages/AIPage";
 import VideoGamesWithoutGuiltPage from "./pages/VideoGamesWithoutGuiltPage";
 import WellnessPage from "./pages/WellnessPage";
+import NeckPainResetPage from "./pages/NeckPainResetPage";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/productivity" element={<ProductivityPage />} />
           <Route path="/ai" element={<AIPage />} />
           <Route path="/wellness" element={<WellnessPage />} />
+          <Route path="/wellness/3-minutes-neck-pain-reset" element={<NeckPainResetPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
